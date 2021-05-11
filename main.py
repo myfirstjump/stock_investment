@@ -55,7 +55,7 @@ class StockTrendPrediction(object):
 
     def data_building(self):
     
-        data = self.data_obj.get_tw_market_data('2005-01-11', '2005-01-12')
+        data = self.data_obj.get_tw_market_data('2005-01-11', '2005-01-11')
         
 
     # def data_exploration(self, data):

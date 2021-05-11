@@ -29,7 +29,7 @@ class DataBuilder(object):
         data = requests.get(self.config_obj.finmind_data_url, params=parameter)
         data = data.json()
         data = pd.DataFrame(data['data'])
-        print(data.head())
+        print(data.tail())
         return data
 
         
