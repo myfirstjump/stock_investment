@@ -1,0 +1,56 @@
+
+
+python LINE bot Notify
+
+登錄LINE Notify服務
+發行LINE Notify權杖(Token)
+整合Python網頁爬蟲及LINE Notify服務
+
+1	登錄LINE Notify服務
+	https://notify-bot.line.me/zh_TW/
+
+	由於本文的Python爬蟲是跑在本機上，所以「服務網址」及「Callback URL」皆為http://127.0.0.1
+	認證郵件將傳送至您所註冊的電子郵件帳號。
+
+	管理登錄服務（服務提供者用）
+	此為已登錄的服務一覽。
+	只要與LINE Notify連動，LINE用戶就能接收來自您所提供的網路服務通知。
+
+	陳年鮭魚的報告
+	陳年鮭魚的報告
+
+
+	Client ID	X2cCxwteZjdsDqlAmiO7U3
+	Client Secret	
+	LZLPbYMi8NnmyVujb1hfknoSETN2r3rUMGN2ovAa1FV 顯示 重設
+	Users	0
+
+
+
+2	發行LINE Notify權杖(Token)
+
+已發行的權杖如下。
+7YoFcw3smG1t4SHZkD4A9WzCVjuqJDg5nxyPppz4Re2
+
+
+3	爬蟲
+	
+	r-ent
+		nrec	推文樹
+		title
+		meta	
+			author
+			article-menu
+			date
+			mark
+			
+4	資料檔
+	
+	
+	date,author,url
+	{"日期":___, "作者":___, "網址":___}
+	
+	
+	
+	
+	
