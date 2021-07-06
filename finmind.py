@@ -15,6 +15,7 @@ import time
 
 my_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRlIjoiMjAyMS0wNC0wOCAyMjo1NToxOSIsInVzZXJfaWQiOiJteWZpcnN0anVtcCIsImlwIjoiMzYuMjI3LjE0NC4yNTAifQ.Rw6QMEW8988_pF7-T_c9HA0cEbtdc3qV-MGkjMzdR0U'
 target_number = '3515'
+output_folder = "C:\\Datasets\\tw_stock\\info"
 
 # today_date = time.strftime("%Y-%m-%d", time.gmtime()) # 過12點，用倫敦時間。
 today_date = time.strftime("%Y-%m-%d") # 沒過12點，用本地時間。
@@ -31,7 +32,8 @@ parameter = {
 resp = requests.get(url, params=parameter)
 data = resp.json()
 data = pd.DataFrame(data["data"])
-print(data.iloc[500:510,])
+
+data.to_csv(output_folder + '\\TaiwanStockInfo.csv', index=False)
 
 print('\n1.1. 台股類別，可以在多維度圖就不同產業上色來觀察')
 stock_types = data['industry_category'].unique()
@@ -39,12 +41,17 @@ stock_ids = data['stock_id'].unique()
 # print(stock_types)
 print('共{}個族群、共{}支股票'.format(len(stock_types), len(stock_ids)))
 
+for each_type in stock_types:
+    sub_data = data[data['industry_category']==each_type]
+    sub_data_companys = sub_data['stock_name'].unique()
+    # print('公司名稱:', sub_data_companys)
+    print('產業:{}，此產業包含:{}個公司'.format(each_type, len(sub_data_companys)))
+
 # print('\n2. 個股資訊:', target_number)
 # '''
 # 重點資訊：Trading_Volume、Trading_Money <-- 此二可推估均價
 # spread
 # '''
-
 
 # print('Today date: ', today_date)
 # parameter = {
@@ -178,22 +185,22 @@ print('共{}個族群、共{}支股票'.format(len(stock_types), len(stock_ids))
 
 
 
-print('\n9. 加權指數 TaiwanVariousIndicators5Seconds')
-'''
-加權指數 TaiwanVariousIndicators5Seconds
-查大盤!!
-'''
-url = "https://api.finmindtrade.com/api/v4/data"
-parameter = {
-    "dataset": "TaiwanVariousIndicators5Seconds",
-    "start_date": today_date,
-    "end_date": today_date,
-    "token": my_token, # 參考登入，獲取金鑰
-}
-data = requests.get(url, params=parameter)
-data = data.json()
-data = pd.DataFrame(data['data'])
-print(data.head())
+# print('\n9. 加權指數 TaiwanVariousIndicators5Seconds')
+# '''
+# 加權指數 TaiwanVariousIndicators5Seconds
+# 查大盤!!
+# '''
+# url = "https://api.finmindtrade.com/api/v4/data"
+# parameter = {
+#     "dataset": "TaiwanVariousIndicators5Seconds",
+#     "start_date": today_date,
+#     "end_date": today_date,
+#     "token": my_token, # 參考登入，獲取金鑰
+# }
+# data = requests.get(url, params=parameter)
+# data = data.json()
+# data = pd.DataFrame(data['data'])
+# print(data.head())
 
 
 

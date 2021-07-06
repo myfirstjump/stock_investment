@@ -3,6 +3,7 @@ import os
 
 from py_module.config import Configuration
 from py_module.data_builder import DataBuilder
+from py_module.database import DataBase
 # from py_module.data_preprocessing import DataProprocessing
 # from py_module.data_exploration import DataExploration
 # from py_module.learning_definition import LearningDefinition
@@ -44,6 +45,7 @@ class StockTrendPrediction(object):
     def __init__(self):
         self.config_obj = Configuration()
         self.data_obj = DataBuilder()
+        self.db_obj = DataBase()
         # self.data_preprocessing_obj = DataProprocessing()
         # self.learning_define_obj = LearningDefinition()
         # self.data_exploration_obj = DataExploration()
@@ -55,7 +57,8 @@ class StockTrendPrediction(object):
 
     def data_building(self):
     
-        data = self.data_obj.get_tw_market_data('2005-01-11', '2005-01-11')
+        # data = self.data_obj.get_tw_market_data('2005-01-11', '2005-01-11')
+        self.db_obj.build_table_in_db('my_db')
         
 
     # def data_exploration(self, data):

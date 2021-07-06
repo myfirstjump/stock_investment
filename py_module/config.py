@@ -16,3 +16,8 @@ class Configuration(object):
         # self.test_file_name = "final_test.txt"
         self.finmind_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRlIjoiMjAyMS0wNC0wOCAyMjo1NToxOSIsInVzZXJfaWQiOiJteWZpcnN0anVtcCIsImlwIjoiMzYuMjI3LjE0NC4yNTAifQ.Rw6QMEW8988_pF7-T_c9HA0cEbtdc3qV-MGkjMzdR0U"
         self.finmind_data_url = "https://api.finmindtrade.com/api/v4/data"
+
+
+        ### my drive data
+        self.data_folder = "C:\\Datasets\\tw_stock"
+        self.data_TaiwanStockInfo_path = self.data_folder + "\\info\\TaiwanStockInfo.csv"
